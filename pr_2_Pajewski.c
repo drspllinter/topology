@@ -24,7 +24,7 @@ void main (int argc, char *argv[])
   /*Neighbour to the right*/
   coordn[0]=coord[0]+1;
   MPI_Cart_rank(vu, coordn, &idr);	
-  /*Y neighbour*/
+  /*Y neighbour (since we have dim=2 in Y and topology is periodic there is only one neighbour (in both direction the same)*/
   coordn[0]=coord[0];
   coordn[1]=coord[1]+1;  
   MPI_Cart_rank(vu, coordn, &idu); 
