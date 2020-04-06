@@ -1,4 +1,6 @@
 #include <mpi.h>
+#include <stdio.h>
+#include <stdlib.h>
 /*Run with 8 processes*/
 voidmain (int argc, char *argv[])
 {
