@@ -12,8 +12,8 @@ voidmain (int argc, char *argv[])
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   dim[0]=4;
   dim[1]=2;
-  period[0]=TRUE;
-  period[1]=FALSE;
+  period[0]=1;
+  period[1]=1;
   reorder=TRUE;
   MPI_Cart_create(MPI_COMM_WORLD,2,dim,period,reorder,&vu);
   if(rank==5){
