@@ -14,7 +14,7 @@ voidmain (int argc, char *argv[])
   dim[1]=2;
   period[0]=1;
   period[1]=1;
-  reorder=TRUE;
+  reorder=1;
   MPI_Cart_create(MPI_COMM_WORLD,2,dim,period,reorder,&vu);
   if(rank==5){
    MPI_Cart_coords(vu,rank,2,coord);
