@@ -7,7 +7,7 @@ void main (int argc, char *argv[])
   int rank;
   MPI_Comm vu;
   int dim[2], period[2], reorder;
-  int coord[2], idr, idl, idu, idd, coordn[2];
+  int coord[2], idr, idl, idu, coordn[2];
   MPI_Init (&argc, &argv);
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   dim[0]=4;
@@ -24,13 +24,10 @@ void main (int argc, char *argv[])
   /*Neighbour to the right*/
   coordn[0]=coord[0]+1;
   MPI_Cart_rank(vu, coordn, &idr);	
-  /*Upper neighbour*/
+  /*Y neighbour*/
   coordn[0]=coord[0];
   coordn[1]=coord[1]+1;  
-  MPI_Cart_rank(vu, coordn, &idu);
-  /*Down neighbour*/
-  coordn[1]=coord[1]-1;  
-  MPI_Cart_rank(vu, coordn, &idd);  
-  printf("P:%d My neighbour to the left is %d and to the right %d, upper %d and down %d\n", rank, idl, idr, idu, idd);
+  MPI_Cart_rank(vu, coordn, &idu); 
+  printf("P:%d My neighbours in x direction are to the left %d and to the right %d, in the y direction %d\n", rank, idl, idr, idu);
   MPI_Finalize();
 }
