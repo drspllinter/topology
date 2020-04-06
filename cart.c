@@ -24,7 +24,13 @@ void main (int argc, char *argv[])
   /*Neighbour to the right*/
   coordn[0]=coord[0]+1;
   MPI_Cart_rank(vu, coordn, &idr);	
-  printf("P:%d My neighbour to the left is %d and to the right %d\n", rank, idl, idr);
-   
+  /*Upper neighbour*/
+  coordn[0]=coord[0];
+  coordn[1]=coord[1]+1;  
+  MPI_Cart_rank(vu, coordn, &idu);
+  /*Down neighbour*/
+  coordn[1]=coord[1]-1;  
+  MPI_Cart_rank(vu, coordn, &idd);  
+  printf("P:%d My neighbour to the left is %d and to the right %d, upper %d and down %d\n", rank, idl, idr, idu, idd);
   MPI_Finalize();
 }
