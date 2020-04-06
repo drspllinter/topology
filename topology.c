@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /*Run with 8 processes*/
-voidmain (int argc, char *argv[])
+void main (int argc, char *argv[])
 {
   int rank;
   MPI_Comm vu;
